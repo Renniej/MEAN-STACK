@@ -1,6 +1,5 @@
-import mongoose from 'mongoose';
 
-
+var mongoose = require('mongoose')
 
 var IssueSchema = mongoose.Schema({
 
@@ -15,6 +14,8 @@ var IssueSchema = mongoose.Schema({
     }
 
 
-});
+}, { collection: 'Issues' });
 
-export var IssueModel = mongoose.model('Issue', IssueSchema);
+  var IssueModel = mongoose.model('Issues', IssueSchema);
+
+ module.exports = IssueModel;
