@@ -2,8 +2,9 @@ var express = require('express');
 const router = express.Router();
 var Issue = require('../models/issue');
 
-router.get('/', function(req,res){//find out what exactly this does
-    
+router.get('/issues', function(req,res){ // WebUrl.com/Issues?
+
+  
    
     Issue.find(function(err, issues){
 
@@ -19,7 +20,7 @@ router.get('/', function(req,res){//find out what exactly this does
 
 });
 
-router.get('issues/:id', function(req, res){
+router.get('/issues/:id', function(req, res){
         Issue.findById(req.params.id, function(err, issue){
 
             if (err){
@@ -32,7 +33,7 @@ router.get('issues/:id', function(req, res){
         });
 })
 
-router.post('issues/add', function(req, res){
+router.post('/issues/add', function(req, res){
 
     let issue = new Issue(req.body);
 
@@ -46,7 +47,7 @@ router.post('issues/add', function(req, res){
 });
 
 
-router.post('issues/update/:id', function(req, res){
+router.post('/issues/update/:id', function(req, res){
 
         Issue.findById(req.params.id, function(err, issue){
 
@@ -72,7 +73,7 @@ router.post('issues/update/:id', function(req, res){
 
 })
 
-router.get('issues/delete/:id', function(req, res){
+router.get('/issues/delete/:id', function(req, res){
 
         Issue.findByIdAndRemove({_id: req.params.id}, function(err, issue){
 

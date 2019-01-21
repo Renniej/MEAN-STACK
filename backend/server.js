@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 
 
 
-app.get('/', issueRoute);
+app.use('/', issueRoute);
 
 
 
